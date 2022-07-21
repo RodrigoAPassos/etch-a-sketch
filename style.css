@@ -2,8 +2,8 @@
     display: flex;
     flex-direction: column;
     align-content: stretch;
-    width: 500px;
-    height: 700px;
+    width: 560px;
+    height: 560px;
     border: 2px solid black;
 }
 
@@ -15,7 +15,7 @@
     max-height: 100%;
     background-color: white;
     box-sizing: border-box;
-    border: 1px solid grey;
+    border: 1px solid lightgray;
 }
 
 .painted {
@@ -26,14 +26,15 @@ p {
     margin: 0;
 }
 
-/*.line {
-    width: 500px;
-    height: 20px;
-}*/
-
 .line {
     display: flex;
     flex-wrap: wrap;
     flex: 1 0 auto;
     align-content: stretch;
+}
+
+.mid {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }

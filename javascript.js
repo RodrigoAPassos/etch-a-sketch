@@ -8,7 +8,6 @@ function createGrid (n) {
         gridContainer.appendChild(line);
         i++;
     }
-    
 }
 // --create a line of n divs--
 function createLine (n) {
@@ -23,21 +22,43 @@ function createLine (n) {
     return lines;
 }
 
-
-const square = document.querySelectorAll(".square");
-console.log(square);
-square.forEach(sqr => {
-    sqr.addEventListener('click', () => {
-        paint();
-        console.log("chamado");
-    })
-})
-
-function paint () {
-    square.classList.add("painted");
-    console.log("fui chamado");
+// --ask size call createGrid--
+function defineSize () {
+    let size = prompt("Please enter a size up to 100 for the sides of the grid: ", "16");
+    if (size > 100 || size <= 0) {
+        defineSize();
+    } else createGrid(size);
 }
 
-//gridContainer.addEventListener("mouseover", () => paint());
+// --func to clear grid before remake--
+function clearGrid() {
+    const gridContainer = document.querySelector(".gridContainer");
+    const lines = document.querySelectorAll(".line");
 
-createGrid(16);
+    lines.forEach((lin) => {
+        gridContainer.removeChild(lin)
+    })
+}
+
+// --paint a sqr--
+function paint (sqr) {
+    sqr.classList.add("painted");
+}
+
+//createGrid(64);
+// --Mouse over--
+function mouseOver () {
+    document.querySelectorAll(".square").forEach((sqr) => {
+        sqr.addEventListener('mouseover', () => {
+            paint(sqr);
+            console.log("chamado")
+        })
+    })
+}
+
+// --Button for grid size--
+document.querySelector(".gridSize").addEventListener('click', () => {
+    clearGrid();
+    defineSize();
+    mouseOver();
+})
