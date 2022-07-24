@@ -14,7 +14,9 @@ body {
     align-content: stretch;
     width: 560px;
     height: 560px;
-    border: 2px solid skyblue;
+    border: 2px solid black;
+    background-image: url(./image/note.png);
+    margin: 20px;
 }
 
 .square {
@@ -23,9 +25,9 @@ body {
     min-width: 5px;
     max-width: 100%;
     max-height: 100%;
-    background-color: skyblue;
     box-sizing: border-box;
     border: 1px solid lightgray;
+    opacity: 0;
 }
 
 .painted {
@@ -48,15 +50,15 @@ p {
     justify-content: space-around;
     align-items: center;
     flex: 1 0 auto;
-    background-image: url(./image/watchingSky.jpg);
-    height: 100%;
+    background-image: url(./image/background.jpg);
+    height: calc(100vh - 75px);
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 .up {
     height: 50px;
-    background-color: skyblue;
+    background-color: rgb(54, 130, 160);
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -68,7 +70,7 @@ p {
 
 .footer {
     height: 25px;
-    background-color: rgb(42, 124, 179);
+    background-color: rgb(13, 75, 117);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -82,7 +84,7 @@ p {
     flex-direction: column;
     margin: 20px;
     border-radius: 12px;
-    border: 2px solid black;
+    border: 3px solid black;
     padding: 12px 28px;
 }
 
@@ -92,8 +94,35 @@ button {
     border: 2px solid black;
     padding: 12px 28px;
     background-color: transparent;
+    font-size: medium;
 }
 
 .on {
-    background-color: white;
+    background-color: black;
+    color: white;
+}
+
+.opct1 {
+    background-color: black;
+    opacity: 0.1;
+}
+
+.opct2 {
+    background-color: black;
+    opacity: 0.25;
+}
+
+.opct3 {
+    background-color: black;
+    opacity: 0.5;
+}
+
+.opct4 {
+    background-color: black;
+    opacity: 0.75;
+}
+
+.opct5 {
+    background-color: black;
+    opacity: 1;
 }

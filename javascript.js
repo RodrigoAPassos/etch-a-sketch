@@ -44,7 +44,7 @@ function clearGrid() {
 function mouseOver () {
     document.querySelectorAll(".square").forEach((sqr) => {
         sqr.addEventListener('mouseover', () => {
-            sqr.setAttribute("style", "background: white; opacity: 1")
+            sqr.setAttribute("style", "background: black; opacity: 1")
         })
     })
 }
@@ -61,7 +61,23 @@ function rainbow () {
 function shading() {
     document.querySelectorAll(".square").forEach((sqr) => {
         sqr.addEventListener("mouseover", () => {
-            sqr.setAttribute("style", `background: rgba(0, 0, 0, ${opacity()})`);
+        let opct = sqr.className;
+        sqr.setAttribute("style", "background: black;");
+        if (opct.includes("1")) {
+            sqr.classList.remove("opct1");
+            sqr.classList.add("opct2");
+        }else if (opct.includes("2")) {
+            sqr.classList.remove("opct2");
+            sqr.classList.add("opct3");
+        }else if (opct.includes("3")) {
+            sqr.classList.remove("opct3");
+            sqr.classList.add("opct4");
+        }else if (opct.includes("4")) {
+            sqr.classList.remove("opct4");
+            sqr.classList.add("opct5");
+        }else {
+            sqr.classList.add("opct1");
+        }
         })
     })
 }
@@ -80,15 +96,27 @@ function rgbColor () {
 }
 
 // --opacity--
-/*function opacity() {
-    let opct = 0.1;
+function opacity() {
     document.querySelectorAll(".square").forEach((sqr) => {
-        opct = window.getComputedStyle(sqr).getPropertyValue("opacity");
-        //console.log(opct);
+        let opct = sqr.className;
+        sqr.setAttribute("style", "background: black;");
+        if (opct.includes("1")) {
+            sqr.classList.remove("opct1");
+            sqr.classList.add("opct2");
+        }else if (opct.includes("2")) {
+            sqr.classList.remove("opct2");
+            sqr.classList.add("opct3");
+        }else if (opct.includes("3")) {
+            sqr.classList.remove("opct3");
+            sqr.classList.add("opct4");
+        }else if (opct.includes("4")) {
+            sqr.classList.remove("opct4");
+            sqr.classList.add("opct5");
+        }else {
+            sqr.classList.add("opct1");
+        }
     })
-    //console.log(opct);
-    return (opct += 0.1);
-}*/
+}
 
 // --Button for grid size--
 document.querySelector(".gridSize").addEventListener('click', () => {
@@ -106,6 +134,7 @@ document.querySelector(".gridSize").addEventListener('click', () => {
 document.querySelector(".rainbowMode").addEventListener("click", () => {
     document.querySelector(".rainbowMode").classList.add("on");
     document.querySelector(".defaultMode").classList.remove("on");
+    document.querySelector(".shading").classList.remove("on");
     rainbow ();
 })
 
@@ -113,17 +142,21 @@ document.querySelector(".rainbowMode").addEventListener("click", () => {
 document.querySelector(".defaultMode").addEventListener("click", () => {
     document.querySelector(".defaultMode").classList.add("on");
     document.querySelector(".rainbowMode").classList.remove("on");
+    document.querySelector(".shading").classList.remove("on");
     mouseOver();
 })
 
 // --button for clear--
 document.querySelector(".clear").addEventListener("click", () => {
     document.querySelectorAll(".square").forEach((sqr) => {
-        sqr.setAttribute("style", "background: skyblue")
+        sqr.setAttribute("style", "opacity: 0;")
     })
 })
 
 // --button for shading--
-/*document.querySelector(".shading").addEventListener("click", () => {
+document.querySelector(".shading").addEventListener("click", () => {
+    document.querySelector(".shading").classList.add("on");
+    document.querySelector(".rainbowMode").classList.remove("on");
+    document.querySelector(".defaultMode").classList.remove("on");
     shading();
-})*/
+})
